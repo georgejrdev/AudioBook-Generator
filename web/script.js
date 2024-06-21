@@ -13,10 +13,14 @@ document.getElementById('upload-form').addEventListener('submit', async function
     formData.append('pdf', file);
 
     try {
+        setDisplayDivLoading("flex")
+
         const response = await fetch('http://127.0.0.1:3030/generateAudio', {
             method: 'POST',
             body: formData
         });
+
+        setDisplayDivLoading("none")
         
         if (!response.ok) {
             throw new Error('Upload failed!');
@@ -36,3 +40,9 @@ document.getElementById('upload-form').addEventListener('submit', async function
         alert('Failed to upload file.');
     }
 });
+
+
+function setDisplayDivLoading(display){
+    divLoading = document.getElementById("loading")
+    divLoading.style.display = display
+}

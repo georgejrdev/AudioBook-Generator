@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Upload PDF</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioBook Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Upload PDF</h1>
-    <form id="upload-form">
-        <input type="file" id="pdf-file" accept="application/pdf" required>
-        <button type="submit">Upload</button>
-    </form>
+    <header>
+        <nav>
+            <p>Made By <a target="_blank" href="https://georgejrdev.github.io/Portfolio/">George Júnior</a></p>
+        </nav>
+    </header>
 
-    <pre id="result"></pre>
+    <main id="content">
+        <h1>AudioBook Generator</h1>
+        <form id="upload-form">
+            <input style="display: none;" type="file" id="pdf-file" accept="application/pdf" required>
+            <input type="button" value="Select PDF File" onclick="document.getElementById('pdf-file').click();" />
+            <button type="submit">Upload</button>
+        </form>
+        <pre id="result"></pre>
+    </main>
+
+    <div id="loading">
+        <div id="circle"></div>
+        <p>wait..</p>
+    </div>
 
     <script src="script.js"></script>
 </body>
