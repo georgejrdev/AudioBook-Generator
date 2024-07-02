@@ -15,7 +15,7 @@ document.getElementById('upload-form').addEventListener('submit', async function
     try {
         setDisplayDivLoading("flex")
 
-        const response = await fetch('http://127.0.0.1:3030/generateAudio', {
+        const response = await fetch('https://audiobook-generator.onrender.com/generateAudio', {
             method: 'POST',
             body: formData
         });
@@ -36,6 +36,7 @@ document.getElementById('upload-form').addEventListener('submit', async function
         a.click();
         URL.revokeObjectURL(url);  
     } catch (error) {
+        setDisplayDivLoading("none")
         console.error('Error:', error);
         alert('Failed to upload file.');
     }
